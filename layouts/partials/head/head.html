@@ -1,5 +1,5 @@
 	<title>{{ .Title }}</title>
-	<link rel="shortcut icon" href="{{ .Site.BaseURL }}{{ .Site.Params.favicon }}">
+
 
 	<!-- Bootstrap -->
 	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
@@ -13,8 +13,18 @@
 	{{ $styles := resources.Get "css/styles.css" }}
   {{ $css := $styles | resources.Minify | resources.Fingerprint "sha512"  }}
   <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}">
-
+	{{ $styles := resources.Get "css/button.css" }}
+  {{ $css := $styles | resources.Minify | resources.Fingerprint "sha512"  }}
+  <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}">
   <!-- Share this --> 
   {{ if .Site.Params.customsharethis }}
 	<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property={{ .Site.Params.sharethis.property }}&product=custom-share-buttons"></script>
 	{{ end }}
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7392b7">
+<meta name="msapplication-TileColor" content="#fffffc">
+<meta name="theme-color" content="#fffffc">
